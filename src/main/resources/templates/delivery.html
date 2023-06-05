@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body data-th-object="${delivery}">
+    <table style="order: black 1px solid; margin: auto;">
+        <tr>
+            <td>Name: </td>
+            <td>
+                <input type="text" data-th-field="*{name}" size="30px"/>
+            </td>
+        </tr>
+        <tr data-th-if="${error != null}">
+            <td></td>
+            <td>
+                <span data-th-text="${error}"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Address: </td>
+            <td>
+                <input type="text" data-th-field="*{address}" size="30px"/>
+            </td>
+        </tr>
+        <tr data-th-if="${error != null}">
+            <td></td>
+            <td>
+                <span data-th-text="${error}"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Phone: </td>
+            <td>
+                <input type="tel" data-th-field="*{phone}" size="30px"/>
+            </td>
+        </tr>
+        <tr data-th-if="${error != null}">
+            <td></td>
+            <td>
+                <span data-th-text="${error}"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Rush: </td>
+            <td>
+                <input type="checkbox" data-th-field="*{isRush}"/>
+            </td>
+        </tr>
+        <tr data-th-if="${error != null}">
+            <td></td>
+            <td>
+                <span data-th-text="${error}"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Comments: </td>
+            <td>
+                <textarea data-th-field="*{comments}" cols="30" rows="20"></textarea>
+            </td>
+        </tr>
+        <tr data-th-if="${error != null}">
+            <td></td>
+            <td>
+                <span data-th-text="${error}"></span>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <!--formaction and formmethod!!!-->
+                <button formaction="/" formmethod="GET" type="submit">Cancel Order</button>
+                <button type="submit">Place Order</button>
+            </td>
+        </tr>
+    </table>
+    
+</body>
+</html>

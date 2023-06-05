@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body data-th-object="${pizza}">
+    <img src="\images\logo.jpg" class="thumbnail"/>
+    <h1>Panucci's Pizza</h1>
+    <h3>Select a pizza</h3>
+    <table>
+        <tr>
+            <td>
+                <div>
+                   <img src="\images\Bella.jpg"> 
+                </div>
+                <div>
+                    <input type="radio" data-th-field="*{pizzaName}"/> Bella
+                </div>
+            </td>
+            <td>
+                <div>
+                   <img src="\images\Margherita.jpg"> 
+                </div>
+                <div>
+                    <input type="radio" data-th-field="*{pizzaName}"/> Margherita
+                </div>
+            </td>
+            <td>
+                <div>
+                   <img src="\images\Marinara.jpg"> 
+                </div>
+                <div>
+                    <input type="radio" data-th-field="*{pizzaName}"/> Marinara
+                </div>
+            </td>
+            <td>
+                <div>
+                   <img src="\images\SpianataCalabrese.jpg"> 
+                </div>
+                <div>
+                    <input type="radio" data-th-field="*{pizzaName}"/> SpianataCalabrese
+                </div>
+            </td>
+            <td>
+                <div>
+                   <img src="\images\TrioFormaggio.jpg"> 
+                </div>
+                <div>
+                    <input type="radio" data-th-field="*{pizzaName}"/> TrioFormaggio
+                </div>
+            </td>
+        </tr>
+        <!--put th:if in tr-->
+        <tr data-th-if="${#fields.hasError('pizzaName')}">
+            <span data-th-errors="*{pizzaName}" data-th-errorClass="error"></span>
+        </tr>
+        <tr>
+            <td>Size:</td>
+            <td>
+                <select data-th-field="*{size}">
+                    <option value="sm">Small</option>
+                    <option value="md">Medium</option>
+                    <option value="lg">Large</option>
+                </select>
+            </td>
+        </tr>
+        <tr data-th-if="${#fields.hasError('size')}">
+            <td></td>
+            <td>
+              <span data-th-errors="*{size}" data-th-errorClass="error"></span>  
+            </td>
+        </tr>
+        <tr>
+            <td>Quantity:</td>
+            <td>
+                <input type="number" data-th-field="*{quantity}" min="1"/>
+            </td>
+        </tr>
+        <tr data-th-if="${#fields.hasError('quantity')}">
+            <td></td>
+            <td>
+                <span data-th-errors="*{quantity}" data-th-errorClass="error"></span>
+            </td>  
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit">Next</button>
+            </td>
+        </tr>
+    </table>
+    
+</body>
+</html>

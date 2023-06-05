@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body data-th-object="${order}">
+    <table style="border: 1px black solid">
+        <tr>
+            <td>Delivery Details</td>
+        </tr>
+        <tr>
+            <td>Order Number: </td>
+            <td data-th-text="${order.orderId}"></td>
+        </tr>
+        <tr>
+            <td>Delivery Address</td>
+            <td data-th-text="*{address}"></td>
+        </tr>
+        <tr>
+            <td>Pizza Cost</td>
+            <td data-th-text="${order.getPizzaCost()}"></td>
+        </tr>
+        <tr>
+            <td>Rush</td>
+            <td data-th-if="${order.getRush()}">$2</td>
+            <td data-th-if="${!order.getRush()}">N/A</td>
+        </tr>
+        <tr>
+            <!--use * when the field is native to object-->
+            <td>Total Cost</td>
+            <td data-th-text="*{totalCost}"></td>
+        </tr>
+    </table>
+    
+</body>
+</html>
